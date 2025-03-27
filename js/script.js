@@ -38,13 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Aircraft Slideshow
     let currentSlide = 0;
     let aircraftData = [];
 
     async function fetchAircraftData() {
         try {
-            const response = await fetch('');
+            const response = await fetch('http://localhost:3000/aircrafts');
             aircraftData = await response.json();
             showSlide(currentSlide);
         } catch (error) {
@@ -54,14 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showSlide(index) {
         if (aircraftData.length === 0) return;
+        
         const slideImage = document.getElementById("slide-image");
         const description = document.getElementById("description");
+    
+        const aircraft = aircraftData[index];
         
-        slideImage.src = aircraftData[index].image;
-        slideImage.alt = aircraftData[index].name;
-        description.textContent = aircraftData[index].description;
+        slideImage.src = aircraft.image;
+        slideImage.alt = aircraft.name;
+        description.innerHTML = `<h2>${aircraft.name}</h2><p>${aircraft.description}</p>`;
     }
-
+    
     document.getElementById("nextAircraft").addEventListener("click", function () {
         currentSlide = (currentSlide + 1) % aircraftData.length;
         showSlide(currentSlide);
