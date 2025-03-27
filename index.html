@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aircraft & Gallery Showcase</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h1>Welcome to Our Website</h1>
+        <p>Explore aircraft and our image gallery.</p>
+        <button id="openGallery">View Gallery</button>
+    </section>
+    
+    <section id="about">
+        <h1>About Us</h1>
+        <p>Learn more about what we do.</p>
+    </section>
+    
+    <div class="lightbox" id="lightbox">
+        <img id="lightboxImage" src="" alt="Gallery Image">
+        <button id="nextImage">Next</button>
+        <button id="closeLightbox">Close</button>
+    </div>
+    
+    <section>
+        <h1>Aircraft Showcase</h1>
+        <div class="slideshow-container">
+            <button id="prevAircraft" class="prev">&#10094;</button>
+            <img class="slides" id="slide-image" src="" alt="Aircraft Image">
+            <button id="nextAircraft" class="next">&#10095;</button>
+        </div>
+        <div class="description" id="description">Aircraft details will appear here.</div>
+    </section>
+    
+    <footer>
+        <p>Contact Us: email@example.com</p>
+    </footer>
+    
+    <audio id="audioPlayer">
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="playPauseAudio">Play/Pause</button>
+    
+    <script src="./js/script.js"></script>
+</body>
+</html>
 
