@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function fetchAircraftData() {
         try {
-            const response = await fetch('https://api.example.com/aircraft');
+            const response = await fetch('');
             aircraftData = await response.json();
             showSlide(currentSlide);
         } catch (error) {
