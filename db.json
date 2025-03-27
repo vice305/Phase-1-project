@@ -1,0 +1,28 @@
+[
+    {
+      "name": "Fokker Dr.I",
+      "image": "https://www.militaryfactory.com/aircraft/imgs/fokker-dr1.jpg",
+      "descption": "A World War I triplane fighter famous for its association with the Red Baron."
+    },
+    {
+     "name": "Fokker D.VII",
+      "image": "https://www.militaryfactory.com/aircraft/imgs/fokker-dvii.jpg",
+      "description": "A highly successful German biplane fighter from World War I."
+    },
+    {
+      "name": "Fokker F.VII",
+      "image": "https://www.militaryfactory.com/aircraft/imgs/fokker-fvii.jpg",
+      "description": "A trimotor transport aircraft used in the 1920s and 1930s."
+    },
+    {
+      "name": "Fokker G.1",
+      "image": "https://www.militaryfactory.com/aircraft/imgs/fokker-g1.jpg",
+      "description": "A heavy fighter and reconnaissance aircraft used by the Dutch during World War II."
+    },
+    {
+      "name": "Fokker 50",
+      "image": "https://www.militaryfactory.com/aircraft/imgs/fokker-50.jpg",
+      "description": "A turboprop airliner developed in the 1980s as an evolution of the F27."
+    }
+  ]
+  
