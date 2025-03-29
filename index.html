@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aircraft & Gallery Showcase</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-        </nav>
+        <div class="main-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="indexAbout.html">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a class="btn" href="#"> <i class="fa-solid fa-user"></i> Log In </a></li>
+            </ul>
+        </div>
     </header>
     
     <section id="home">
@@ -21,8 +26,22 @@
     </section>
     
     <section id="about">
-        <h1>About Us</h1>
+        <h1><a href="indexAbout.html">About Us</a></h1>
         <p>Learn more about what we do.</p>
+    </section>
+    
+    <section id="gallery">
+        <!-- Gallery items will be dynamically added here -->
+    </section>
+
+    <section id="contribute">
+        <h2>Contribute an Aircraft</h2>
+        <form id="contribute-form">
+            <input type="text" id="aircraft-name" placeholder="Aircraft Name" required>
+            <input type="url" id="aircraft-image" placeholder="Image URL" required>
+            <textarea id="aircraft-description" placeholder="Description"></textarea>
+            <button type="submit" id="submit-aircraft">Submit</button>
+        </form>
     </section>
     
     <div class="lightbox" id="lightbox">
@@ -42,7 +61,20 @@
     </section>
     
     <footer>
-        <p>Contact Us: vice7440@gmail.com</p>
+        <div id="footer">     
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Recent Projects</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="#">aircraftdatabase@gmail.com</a></li>
+            </ul>
+        </div>
     </footer>
     
     <audio id="audioPlayer">

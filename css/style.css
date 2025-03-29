@@ -1,3 +1,9 @@
+:root {
+    --primary-color: #4891ff;
+    --light-color: #f4f4f6;
+    --dark-color: #111;
+  }
+  
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -22,8 +28,12 @@ nav a {
 section {
     padding: 50px;
 }
-
-/* Lightbox Gallery */
+.main-menu ul {
+    display: flex;
+    justify-content:space-evenly;
+    align-items:self-end;
+    list-style: none;
+  }
 .lightbox {
     display: none;
     position: fixed;
@@ -95,4 +105,10 @@ button {
 
 button:hover {
     background: #0056b3;
+}
+#footer ul{
+    display: flex;
+    justify-content:space-evenly;
+    align-items:self-end;
+    list-style: none;
 }
