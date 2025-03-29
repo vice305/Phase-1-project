@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function fetchAircraftData() {
         try {
-            const response = await fetch('http://localhost:3000/aircrafts');
+            const response = await fetch('https://flatter-cuties-vpdp.vercel.app/aircrafts');
             aircraftData = await response.json();
             showSlide(currentSlide);
         } catch (error) {
