@@ -21,7 +21,7 @@
     
     <section id="home">
         <h1>Welcome to Our Website</h1>
-        <p>Explore aircraft and our image gallery.</p>
+        <p>Discover the beauty of aviation through our curated collection of aircraft images.</p>
         <button id="openGallery">View Gallery</button>
     </section>
     
@@ -31,7 +31,10 @@
     </section>
     
     <section id="gallery">
-        <!-- Gallery items will be dynamically added here -->
+        <h1>Aircraft API</h1>
+        <p>Explore our aircraft database through our API.</p>
+        <button id="fetchAircraft">Fetch Aircraft</button>
+        <div id="aircraft-list"></div>
     </section>
 
     <section id="contribute">
@@ -39,7 +42,7 @@
         <form id="contribute-form">
             <input type="text" id="aircraft-name" placeholder="Aircraft Name" required>
             <input type="url" id="aircraft-image" placeholder="Image URL" required>
-            <input type="aircraft-description" placeholder="Description"></textarea>
+            <input type="aircraft-description" id="a/c-description" placeholder="Description"></textarea>
             <button type="submit" id="submit-aircraft">Submit</button>
         </form>
     </section>

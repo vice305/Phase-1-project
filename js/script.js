@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const images = ["assets/images/geraud-gordias-bNVbyBl870A-unsplash.jpg", "assets/images/luka-slapnicar-yqeXLR81Uj0-unsplash.jpg", "assets/images/merve-sensoy-UEb7vAqYb4U-unsplash.jpg"];
+    const images = ["assets/images/geraud-gordias-bNVbyBl870A-unsplash.jpg", "assets/images/luka-slapnicar-yqeXLR81Uj0-unsplash.jpg", "assets/images/merve-sensoy-UEb7vAqYb4U-unsplash.jpg", "assets/images/ern-low-QMAhB9P0RXg-unsplash.jpg", "assets/images/greg-rosenke-0DizjoNOCrw-unsplash.jpg", "assets/images/jakob-rosen--MqeaR_Ft3k-unsplash.jpg","assets/images/jakob-rosen-Emvf_emPMdY-unsplash.jpg", "assets/images/jakob-rosen-j8YKy5lXejM-unsplash.jpg", "assets/images/jakob-rosen-kZfdHrUoB3U-unsplash.jpg", "assets/images/tim-dennert-ID3ZX0BqnS8-unsplash.jpg"];
     let currentIndex = 0;
     
     const lightbox = document.getElementById("lightbox");
@@ -43,22 +43,23 @@ document.addEventListener("DOMContentLoaded", function () {
         const aircraftNameInput = document.getElementById("aircraft-name");
         const aircraftImageInput = document.getElementById("aircraft-image");
         const aircraftDescriptionInput = document.getElementById("aircraft-description");
-        const submitButton = document.getElementById("submit-aircraft");
         
-        const apiUrl = "https://api.planespotters.net/pub/photos/reg/D-ABCD";
+        const jsonFile = "https://www.planespotters.net/photos/latest"; // Load from external source
         let images = [];
         let currentIndex = 0;
     
         async function fetchPlaneData() {
             try {
-                const response = await fetch(apiUrl);
+                const response = await fetch(jsonFile);
                 const data = await response.json();
     
-                if (data.photos && data.photos.length > 0) {
-                    images = data.photos.map(photo => ({
-                        url: photo.photo_url,
-                        title: photo.registration,
-                        description: photo.description || "No description available"
+                if (data.length > 0) {
+                    images = data.map(item => ({
+                        url: item.photo_url,
+                        title: item.registration,
+                        airline: item.airline,
+                        aircraft: item.aircraft,
+                        location: item.location
                     }));
                     currentIndex = 0;
                     updateGallery();
@@ -76,7 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="gallery-item">
                         <img src="${images[currentIndex].url}" alt="${images[currentIndex].title}">
                         <h2>${images[currentIndex].title}</h2>
-                        <p>${images[currentIndex].description}</p>
+                        <p><strong>Airline:</strong> ${images[currentIndex].airline}</p>
+                        <p><strong>Aircraft:</strong> ${images[currentIndex].aircraft}</p>
+                        <p><strong>Location:</strong> ${images[currentIndex].location}</p>
                     </div>
                     <button id="prevImage">Previous</button>
                     <button id="nextImage">Next</button>
@@ -107,7 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const newAircraft = {
                 url: aircraftImageInput.value,
                 title: aircraftNameInput.value,
-                description: aircraftDescriptionInput.value
+                airline: "User Submission",
+                aircraft: "Custom Entry",
+                location: "Not Available"
             };
     
             if (newAircraft.url && newAircraft.title) {
@@ -123,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
         fetchPlaneData();
     });
+    
     let currentSlide = 0;
     let aircraftData = [];
 
