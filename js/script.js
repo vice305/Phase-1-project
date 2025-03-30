@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const aircraftImageInput = document.getElementById("aircraft-image");
         const aircraftDescriptionInput = document.getElementById("aircraft-description");
         
-        const jsonFile = "https://www.planespotters.net/photos/latest"; // Load from external source
+        const jsonFile = "plane.json"; // Load from external JSON file
         let images = [];
         let currentIndex = 0;
     
@@ -59,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         title: item.registration,
                         airline: item.airline,
                         aircraft: item.aircraft,
-                        location: item.location
+                        location: item.serial_number,
+                        photographer: item.photographer
                     }));
                     currentIndex = 0;
                     updateGallery();
@@ -79,7 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         <h2>${images[currentIndex].title}</h2>
                         <p><strong>Airline:</strong> ${images[currentIndex].airline}</p>
                         <p><strong>Aircraft:</strong> ${images[currentIndex].aircraft}</p>
-                        <p><strong>Location:</strong> ${images[currentIndex].location}</p>
+                        <p><strong>Serial Number:</strong> ${images[currentIndex].location}</p>
+                        <p><strong>Photographer:</strong> ${images[currentIndex].photographer}</p>
                     </div>
                     <button id="prevImage">Previous</button>
                     <button id="nextImage">Next</button>
@@ -112,7 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 title: aircraftNameInput.value,
                 airline: "User Submission",
                 aircraft: "Custom Entry",
-                location: "Not Available"
+                location: "Not Available",
+                photographer: "User"
             };
     
             if (newAircraft.url && newAircraft.title) {
