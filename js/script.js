@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const aircraftDescriptionInput = document.getElementById("aircraft-description");
         const submitButton = document.getElementById("submit-aircraft");
         
-        const apiUrl = "https://api.planespotters.net/pub/photos/reg/D-ABCD"; // Replace with correct API
+        const apiUrl = "https://api.planespotters.net/pub/photos/reg/D-ABCD";
         let images = [];
         let currentIndex = 0;
     
