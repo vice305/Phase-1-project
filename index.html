@@ -30,12 +30,172 @@
         <p>Learn more about what we do.</p>
     </section>
     <h1>Aircraft Gallery</h1>
+    <style>
+        .grid-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 20px;
+          padding: 20px;
+        }
     
-    <div id="gallery" class="gallery-container">
-        
-        <p>Explore our aircraft database through our API.</p>
-    </div>
+        .grid-item {
+          border: 1px solid #ddd;
+          padding: 10px;
+          text-align: center;
+        }
     
+        .grid-item img {
+          max-width: 100%;
+          height: auto;
+          margin-bottom: 10px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="grid-container" id="aircraftGrid"></div>
+    
+      <script>
+        const aircraftData = {
+          "planes": [
+            {
+              "registration": "A9C-NB",
+              "airline": "Gulf Air",
+              "aircraft": "Airbus A321-253NX",
+              "serial_number": "10169",
+              "photographer": "Florian Venus",
+              "photo_url": "https://t.plnspttrs.net/17861/1543954_4ac530f2da_280.jpg"
+            },
+            {
+              "registration": "TC-JRN",
+              "airline": "Turkish Airlines",
+              "aircraft": "Airbus A321-231",
+              "serial_number": "4654",
+              "photographer": "Martin Bernict",
+              "photo_url": "https://cdn.plnspttrs.net/20989/tc-jrn-turkish-airlines-airbus-a321-231_PlanespottersNet_1329708_ede0486a9d_o.jpg"
+            },
+            {
+              "registration": "B-6297",
+              "airline": "Shenzhen Airlines",
+              "aircraft": "Airbus A320-214",
+              "serial_number": "2980",
+              "photographer": "wang yb",
+              "photo_url": "https://t.plnspttrs.net/16789/1742546_b5f5daf4ff_280.jpg"
+            },
+            {
+              "registration": "RA-73138",
+              "airline": "Aeroflot - Russian Airlines",
+              "aircraft": "Boeing 777-3M0ER",
+              "serial_number": "41681",
+              "photographer": "Martin Bernict",
+              "photo_url": "https://cdn.plnspttrs.net/17003/ra-73138-aeroflot-russian-airlines-boeing-777-3m0er_PlanespottersNet_1493494_59c2193fc3_o.jpg"
+            },
+            {
+              "registration": "TC-NCL",
+              "airline": "Pegasus",
+              "aircraft": "Airbus A320-251N",
+              "serial_number": "9411",
+              "photographer": "Martin Bernict",
+              "photo_url": "https://t.plnspttrs.net/40596/1432952_5e806e61d9_280.jpg"
+            },
+            {
+              "registration": "T-057",
+              "airline": "Multinational Multi-Role Tanker Transport Fleet (MMF)",
+              "aircraft": "Airbus A330-243MRTT",
+              "serial_number": "1945",
+              "photographer": "Grazy",
+              "photo_url": "https://cdn.plnspttrs.net/48556/t-057-multinational-multi-role-tanker-transport-fleet-mmf-airbus-a330-243mrtt_PlanespottersNet_1556612_a4925b397d_o.jpg"
+            },
+            {
+              "registration": "N344KD",
+              "airline": "Western Global Airlines",
+              "aircraft": "Boeing 747-446(BCF)",
+              "serial_number": "26344",
+              "photographer": "Andrei Shmatko",
+              "photo_url": "https://t.plnspttrs.net/14996/1671759_d242a91821_280.jpg"
+            },
+            {
+              "registration": "9V-SJI",
+              "airline": "Singapore Airlines",
+              "aircraft": "Airbus A350-941",
+              "serial_number": "697",
+              "photographer": "James Donaldson",
+              "photo_url": "https://t.plnspttrs.net/28376/1683883_6cf1ac48b7_280.jpg"
+            },
+            {
+              "registration": "B-6870",
+              "airline": "China Eastern Airlines",
+              "aircraft": "Airbus A320-214",
+              "serial_number": "4844",
+              "photographer": "Julian.C",
+              "photo_url": "https://t.plnspttrs.net/26279/1225055_aa478f1f85_280.jpg"
+            },
+            {
+              "registration": "TC-NBM",
+              "airline": "Pegasus",
+              "aircraft": "Airbus A320-251N",
+              "serial_number": "7990",
+              "photographer": "Martin Bernict",
+              "photo_url": "https://t.plnspttrs.net/33625/1585579_cf500d224d_280.jpg"
+            },
+            {
+              "registration": "C-FIVS",
+              "airline": "Air Canada",
+              "aircraft": "Boeing 777-333ER",
+              "serial_number": "35784",
+              "photographer": "Isaac Li-Pan",
+              "photo_url": "https://t.plnspttrs.net/41228/1573481_2aec1efe7a_280.jpg"
+            },
+            {
+              "registration": "ZK-MBE",
+              "airline": "Canterbury Aero Club",
+              "aircraft": "Piper PA-28-151 Cherokee Warrior",
+              "serial_number": "Unknown",
+              "photographer": "James Kirkland",
+              "photo_url": "https://t.plnspttrs.net/21759/1518271_46b6ad75d4_280.jpg"
+            },
+            {
+              "registration": "EC-NBG",
+              "airline": "Iberia Regional",
+              "aircraft": "ATR 72-600 (72-212A)",
+              "serial_number": "1022",
+              "photographer": "Ondrej Planka",
+              "photo_url": "https://t.plnspttrs.net/20919/1484659_79b355e48f_280.jpg"
+            },
+            {
+              "registration": "8Q-RAJ",
+              "airline": "Manta Air",
+              "aircraft": "De Havilland Canada DHC-6-300 Twin Otter",
+              "serial_number": "529",
+              "photographer": "G. Najberg",
+              "photo_url": "https://t.plnspttrs.net/25091/1742535_567fd5d40f_280.jpg"
+            }
+          ]
+        };
+    
+        const gridContainer = document.getElementById('aircraftGrid');
+    
+        aircraftData.planes.forEach(plane => {
+          const gridItem = document.createElement('div');
+          gridItem.classList.add('grid-item');
+    
+          const img = document.createElement('img');
+          img.src = plane.photo_url;
+          img.alt = `${plane.registration} - ${plane.airline} - ${plane.aircraft}`;
+    
+          const details = document.createElement('div');
+          details.innerHTML = `
+            <p><strong>Registration:</strong> ${plane.registration}</p>
+            <p><strong>Airline:</strong> ${plane.airline}</p>
+            <p><strong>Aircraft:</strong> ${plane.aircraft}</p>
+            <p><strong>Serial Number:</strong> ${plane.serial_number}</p>
+            <p><strong>Photographer:</strong> ${plane.photographer}</p>
+          `;
+    
+          gridItem.appendChild(img);
+          gridItem.appendChild(details);
+          gridContainer.appendChild(gridItem);
+        });
+      </script>
     <section id="contribute">
         <h2>Contribute an Aircraft</h2>
         <form id="contribute-form">
